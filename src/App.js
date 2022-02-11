@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Product from './Components/Product';
+import ProductFonctionnel from './Components/ProductFonctionnel';
+import products from "./Components/product.json";
+import styled from 'styled-components';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppFrame>
+      {products.map((p, index) => 
+       { return <Product prod={p} key={index}> </Product>}
+      )}  
+    </AppFrame>
   );
 }
+
+const AppFrame = styled.div`
+  text-align: center;
+  display: flex;
+`;
+
 
 export default App;
